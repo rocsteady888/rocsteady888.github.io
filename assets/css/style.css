@@ -1,0 +1,70 @@
+/*.headline {
+	background-color: black;
+	color: white;
+	text-align: center;
+}*/
+
+
+.name-header {
+	padding-top: 1rem;
+}
+
+.navbar {
+	padding-left: 2.5rem;
+}
+
+.profile-picture {
+	margin-top: 10px;
+	float: left;
+	padding-right: 15px;
+}
+
+.mainbio {
+	width: 60%;
+	padding: 25px;
+}
+
+.contact {
+	float: right;
+	width: 30%;
+}
+
+.card-header {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.card {
+	margin-top: 35px;
+	height: 300px;
+}
+
+.professional-link {
+	width: 4.5rem;
+	display: inline-block;
+}
+
+.contact-form {
+	margin-top: 2rem;
+}
+
+.card-body {
+	border-width: 100%;
+	padding: 0px;
+}
+
+.contact-card {
+	border-style: solid;
+	border-color: darkgray;
+	border-width: 2px;
+	height: 220px;
+}
+
+.professional-link {
+	margin-left: .25rem;
+}
+
+.contact-links {
+	margin: .5rem .5rem;
+	padding: .5rem .5rem;
+}
