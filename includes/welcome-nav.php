@@ -29,9 +29,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PCRs<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="pcr.php">Start New</a></li>
-            <li><a href="pcr.php">Incomplete</a></li>
-            <li><a href="pcr.php">Returned</a></li>
+            <li><a href="#">Start New</a></li>
+            <li><a href="#">Incomplete</a></li>
+            <li><a href="#">Returned</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -44,7 +44,16 @@
         </li>
         <li><a href="#">Testing</a></li>
       </ul>
-      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Star
+      <form class="navbar-form navbar-right" role="form">
+        <div class="form-group">
+          <input type="text" placeholder="Username" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control">
+        </div>
+        <a class="btn btn-primary" href="dashboard.php" role="button">Sign in</a>
+        <a class="btn btn-primary" href="dashboard.php" role="button">Sign up</a>
+      </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
