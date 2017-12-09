@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="dashboard.php">Dashboard</a>
+      <a class="navbar-brand" href="dashboard.html">Dashboard</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,8 +51,8 @@
         <div class="form-group">
           <input type="password" placeholder="Password" class="form-control">
         </div>
-        <a class="btn btn-primary" href="dashboard.php" role="button">Sign in</a>
-        <a class="btn btn-primary" href="dashboard.php" role="button">Sign up</a>
+        <a class="btn btn-primary" href="dashboard.html" role="button">Sign in</a>
+        <a class="btn btn-primary" href="dashboard.html" role="button">Sign up</a>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

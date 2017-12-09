@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="dashboard.php">Dashboard</a>
+      <a class="navbar-brand" href="dashboard.html">Dashboard</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,9 +29,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PCRs<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="pcr.php">Start New</a></li>
-            <li><a href="pcr.php">Incomplete</a></li>
-            <li><a href="pcr.php">Returned</a></li>
+            <li><a href="pcr.html">Start New</a></li>
+            <li><a href="pcr.html">Incomplete</a></li>
+            <li><a href="pcr.html">Returned</a></li>
           </ul>
         </li>
         <li class="dropdown">
