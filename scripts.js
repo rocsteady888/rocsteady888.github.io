@@ -1,6 +1,5 @@
-
 var hangman = {
-	guesses: 0,
+	wrongGuesses: 10,
 	wins: 0,
 	words: [
 		"strawberry", 
@@ -14,44 +13,139 @@ var hangman = {
 	],
 }
 
+//the blank underscores shown to player at the start
+var answerDisplay = [];
+
+
+// when player guesses correctly, these will be displayed
+var answerArray = [];
+
+// shows player which letters they have guessed
+var guessedLetters = [];
+
 // Get a random word from the array when Start button is clicked.
 function start() {
+
 	//random number to get index of word in hangman object
-	var randNum = Math.floor((Math.random() * hangman.words.length));
-
-	var letters = [];
-
-	//reset word
+	var randWord = hangman.words[Math.floor((Math.random() * hangman.words.length))];
+	var correctGuesses = randWord.length;
+	//reset game
+	hangman.wrongGuesses = 10;
+	document.getElementById("guessedLetters").innerHTML = ""; 
 	document.getElementById("demo").innerHTML = ""; 
-
+	document.getElementById("guesses").innerHTML = "Guesses: " + hangman.wrongGuesses; 
+	document.getElementById("wins").innerHTML = "Wins: " + hangman.wins; 
 	// append new value to the array
 	// use random word from array and write each letter to id='demo'
-	var s = hangman.words[randNum];
-	for (var i = 0; i < s.length; i++) {
-    letters.push(s.charAt(i));
-	document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + " ___ "; 
-    console.log(s.charAt(i));
+
+
+	// let player know how many letters are in the word
+	for (var i = 0; i < randWord.length; i++) {
+    	answerDisplay[i] = "__ ";
+    	document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + answerDisplay[i];
+	}
+
+	//  hold value of correct letters in another array
+	for (var i = 0; i < randWord.length; i++) {
+    	randWord[i] = answerArray[i];
 	}
 
 	//user's guess
 	document.onkeyup = function(event) {
 
 		// Determines which key was pressed.
-		// check each index in the array if it matches do while
+		// check each index in the array if it matches
 		var userGuess = event.key;
 		console.log(userGuess);
-		for (var i = 0; i < s.length; i++) {
-		    if ( === -1) {
-		        searchHits.style.display = 'none';
+		document.getElementById("demo").innerHTML = "";
+		for (var i = 0; i < randWord.length; i++) {
+			if (randWord[i] === userGuess) {
+				correctGuesses --;
+		    	answerDisplay[i] = userGuess;
+		    	document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + answerDisplay[i] + " ";
+		    } else if (randWord[i]) {
+		    	document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + answerDisplay[i] + " ";
 		    }
 		}
+
+		// counts wrong guesses
+		function indexChecker(userGuess) {
+
+			var indexCheck = randWord.indexOf(userGuess);
+			if ( indexCheck < 0 ) {
+				hangman.wrongGuesses --;
+				document.getElementById("guesses").innerHTML = "Guesses: " + hangman.wrongGuesses; 
+			} 
+		}
+
+		indexChecker(userGuess);
+
+
+		//shows player which letters have been guessed
+		function guessedLet(userGuess) {
+			var indexGuessLet = randWord.indexOf(userGuess);
+			if ( indexGuessLet < 0 ) { 
+			guessedLetters.push();
+			document.getElementById("guessedLetters").innerHTML = document.getElementById("guessedLetters").innerHTML + " " + userGuess;
+			}
+		}
+
+		guessedLet(userGuess);
+
+
+		// draw hangman
+		var wrongGuesses = hangman.wrongGuesses;
+		function drawHangman (wrongGuesses) {
+			if (wrongGuesses = 10 ) {
+				document.getElementById("myImg").src = "assets/images/base.png";
+			} else if (wrongGuesses = 9 ) {
+				document.getElementById("myImg").src = "assets/images/shaft.png";
+			} else if (wrongGuesses = 8 ) {
+				document.getElementById("myImg").src = "assets/images/branch.png";
+			} else if (wrongGuesses = 7 ) {
+				document.getElementById("myImg").src = "assets/images/rope.png";
+			} else if (wrongGuesses = 6  ) {
+				document.getElementById("myImg").src = "assets/images/head.png";
+			} else if (wrongGuesses = 5 ) {
+				document.getElementById("myImg").src = "assets/images/body.png";
+			} else if (wrongGuesses = 4 ) {
+				document.getElementById("myImg").src = "assets/images/arm1.png.png";
+			} else if (wrongGuesses = 3 ) {
+				document.getElementById("myImg").src = "assets/images/arm2.png.png";
+			} else if (wrongGuesses = 2 ) {
+				document.getElementById("myImg").src = "assets/images/leg1.png.png";
+			} else if (wrongGuesses = 1 ) {
+				document.getElementById("myImg").src = "assets/images/leg2.png.png";
+			} else if (wrongGuesses = 0 ) {
+				alert("you lose :(");
+			}
+		}
+
+		drawHangman(wrongGuesses);
+
+
+		// lets player know when there are no more letters to guess
+		function correctGuessesCount(correctGuesses) {
+			if (correctGuesses === 0) {
+		    	alert("You Win!!!");
+		    	hangman.wins ++; 
+			}
+		}
+
+		correctGuessesCount(correctGuesses);
+
 	}
 
 	// for testing only
-	console.log(letters);
-	console.log(hangman.words[randNum]);
+	console.log(randWord);
 	console.log("*-*-*-*-*-*");
 }
+
+
+//
+// blank letter array
+
+
 
 // user inputs a letter
 // check to see if input is in string
